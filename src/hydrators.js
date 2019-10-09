@@ -7,9 +7,8 @@ function interopDefault(mod) {
 
 export function ServerHydrator({ load, ...props }) {
   const Child = interopDefault(load());
-  console.log("server hydrator");
   return (
-    <section className="hydrated">
+    <section>
       <Child {...props} />
     </section>
   );
@@ -26,7 +25,6 @@ export class Hydrator extends React.Component {
       obs.unobserve(this.root);
 
       const { load, ...props } = this.props;
-      console.log("client hydrator");
       const Child = interopDefault(await load());
       ReactDOM.hydrate(<Child {...props} />, this.root);
     }).observe(this.root);
@@ -35,7 +33,6 @@ export class Hydrator extends React.Component {
   render() {
     return (
       <section
-        className="hydrated"
         ref={c => (this.root = c)}
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: "" }}

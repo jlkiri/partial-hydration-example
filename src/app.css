@@ -1,7 +1,23 @@
-.hydrated {
-  background-color: red;
+.letter {
+  text-align: center;
+  font-size: 60px;
 }
 
-.normal {
-  padding-bottom: 1000px;
+.letter:last-child {
+  padding-bottom: 40px;
+}
+
+#lazy {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  text-align: center;
+  font-size: 80px;
+}
+
+#face {
+  position: relative;
+  top: 20px;
+  height: 100px;
+  width: 120px;
 }
